@@ -20,15 +20,15 @@ var toolbox_js = require('../lib/toolbox-js.js');
     test.ifError(value)
 */
 
-exports['awesome'] = {
+exports['executeCmdAsync'] = {
   setUp: function(done) {
     // setup here
     done();
   },
   'no args': function(test) {
-    test.expect(1);
-    // tests here
-    test.equal(toolbox_js.awesome(), 'awesome', 'should be awesome.');
+	test.expect(1);
+	var output = toolbox_js.executeCmdSync('ls');
+    test.ok(output.length > 0);
     test.done();
   }
 };
