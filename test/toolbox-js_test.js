@@ -1,4 +1,5 @@
 var toolbox_js = require('../lib/toolbox-js.js');
+var shelljs = require('shelljs');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -30,7 +31,16 @@ exports['executeCmdAsync'] = {
 };
 
 
-exports.console = function(test) {
+exports.assertTrue = function(test) {
 	toolbox_js.assertTrue(true, "A message should not be printed in red.");
 	test.done();
-}
+};
+
+exports.getHomeDir = function(test) {
+	var homeDir = toolbox_js.getHomeDir();
+	
+	test.ok(homeDir.length > 0);
+	test.equal(shelljs.env['HOME'], homeDir);
+	test.ok( homeDir.startsWith('/Users') );
+	test.done();
+};
