@@ -33,6 +33,7 @@
   },
   "keywords": [],
   "dependencies": {
-  	"shelljs":"latest"
+  	"shelljs":"latest",
+	"colors":"latest"
   }
 }

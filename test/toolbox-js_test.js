@@ -21,10 +21,6 @@ var toolbox_js = require('../lib/toolbox-js.js');
 */
 
 exports['executeCmdAsync'] = {
-  setUp: function(done) {
-    // setup here
-    done();
-  },
   'no args': function(test) {
 	test.expect(1);
 	var output = toolbox_js.executeCmdSync('ls');
@@ -32,3 +28,9 @@ exports['executeCmdAsync'] = {
     test.done();
   }
 };
+
+
+exports.console = function(test) {
+	toolbox_js.assertTrue(true, "A message should not be printed in red.");
+	test.done();
+}
